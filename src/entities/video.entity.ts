@@ -5,12 +5,14 @@ import { Categoria } from "./categoria.entity";
 @Entity()
 export class Video extends BaseEntity{
 
-    constructor(data: {id?:number, titulo?:string, descricao?:string, url?:string}){
+    constructor(data: {id?:number, titulo?:string, descricao?:string, url?:string, canal?:Canal, categoria?:Categoria}){
         super();
         this.id = data && data.id || 0; 
         this.titulo = data && data.titulo || "";
         this.descricao = data && data.descricao || "";
         this.url = data && data.url || "";
+        this.canal = data && data.canal || null;
+        this.categoria = data && data.categoria || null;
     }
 
     @PrimaryGeneratedColumn()
@@ -25,11 +27,9 @@ export class Video extends BaseEntity{
     @Column("varchar", {nullable: true})
     url:string;
 
-    channelId:string;
     @ManyToOne(type => Canal, canal => canal.videos)
     canal: Canal;
 
-    categoryId:number;
     @ManyToOne(type => Categoria, categoria => categoria.videos)
     categoria: Categoria;
     
