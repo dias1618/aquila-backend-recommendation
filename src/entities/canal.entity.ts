@@ -16,7 +16,7 @@ export class Canal extends BaseEntity{
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column("varchar")
+    @Column("varchar", {nullable: false})
     idPlatform:string;
 
     @Column("varchar")

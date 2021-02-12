@@ -18,7 +18,7 @@ export class Categoria extends BaseEntity{
     @Column("varchar")
     nome:string;
 
-    @Column("integer")
+    @Column("integer", {nullable: false})
     idPlatform:number;
 
     @OneToMany(type => Video, videos => videos.categoria)
