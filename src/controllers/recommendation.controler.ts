@@ -1,5 +1,5 @@
 import { Controller, Post, HttpCode, Body, Param, Get, Query } from "@nestjs/common";
-import { RecommendationService } from "src/services/recommendation/recommendation.service";
+import { RecommendationService } from "src/services/recommendation.service";
 
 @Controller('recommendations')
 export class RecommendationController {

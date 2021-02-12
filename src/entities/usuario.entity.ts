@@ -1,8 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, BaseEntity } from "typeorm";
-import { Programacao } from "./programacao.entity";
-import { Categoria } from "./categoria.entity";
-import { UsuarioCategoria } from "./usuario-categoria.entity";
-import { UsuarioVideo } from "./usuario-video.entity";
 
 @Entity()
 export class Usuario extends BaseEntity{
@@ -30,15 +26,6 @@ export class Usuario extends BaseEntity{
 
     @Column("varchar", {nullable: true})
     email:string;
-
-    @OneToMany(type => Programacao, programacoes => programacoes.usuario)
-    programacoes: Programacao[];
-
-    @OneToMany(type => UsuarioCategoria, usuariosCategorias => usuariosCategorias.usuario)
-    usuariosCategorias: UsuarioCategoria[];
-
-    @OneToMany(type => UsuarioVideo, usuariosVideos => usuariosVideos.usuario)
-    usuariosVideos: UsuarioVideo[];
 
     toJson():string{
         return `{
